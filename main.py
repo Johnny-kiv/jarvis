@@ -54,6 +54,7 @@ class Jarvis():
         mas = query.split(" ")
         if mas[1]=="включи":
             Jarvis.query_in_youtube(mas[1])
+        print(mas[1])
 voice_input = Jarvis().record_and_recognize_audio()
 print(voice_input)
 Jarvis.execute_command_with_name(voice_input)
