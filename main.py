@@ -1,5 +1,16 @@
 import speech_recognition
 import webbrowser
+
+
+def query_in_yandex(self,query=" "):
+    url = f"https://yandex.ru/search/?text={query}"
+    webbrowser.open(url=url)
+    print(webbrowser.name)
+
+def query_in_youtube(query):
+    url = f"https://www.youtube.com/results?search_query={query}"
+    webbrowser.open(url=url)
+    return webbrowser.name
 class Jarvis():
 
     def record_and_recognize_audio(*args: tuple):
@@ -37,20 +48,12 @@ class Jarvis():
         webbrowser.open(url=url)
         print(webbrowser.name)
 
-    def query_in_yandex(self,query=" "):
-        url = f"https://yandex.ru/search/?text={query}"
-        webbrowser.open(url=url)
-        print(webbrowser.name)
-
-    def query_in_youtube(query):
-        url = f"https://www.youtube.com/results?search_query={query}"
-        webbrowser.open(url=url)
-        return webbrowser.name
-
     def execute_command_with_name(query):
         mas = query.split(" ")
         if mas[1]=="включи":
-            Jarvis.query_in_youtube(mas[1])
+            url = f"https://www.youtube.com/results?search_query={mas[1]}"
+            webbrowser.open(url=url)
+            return webbrowser.name
         print(mas[1])
 voice_input = Jarvis().record_and_recognize_audio()
 print(voice_input)
