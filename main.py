@@ -6,9 +6,7 @@ import webbrowser
 class Jarvis():
 
     def record_and_recognize_audio(*args: tuple):
-        """
-        Запись и распознавание аудио
-        """
+
         recognizer = speech_recognition.Recognizer()
         with speech_recognition.Microphone() as mic:
             recognized_data = ""
@@ -47,20 +45,15 @@ class Jarvis():
         webbrowser.open(url=url)
         print(webbrowser.name)
 
-    def query_in_youtube(self,query):
+    def query_in_youtube(query):
         url = f"https://www.youtube.com/results?search_query={query}"
         webbrowser.open(url=url)
         return webbrowser.name
 
-    def execute_command_with_name(self,query):
-        query.split(" ")
-        if query[0]=="включи":
-            Jarvis.query_in_youtube(self,query[1])
-        print(query[1])
-while True:
-    voice_input = Jarvis().record_and_recognize_audio()
-    print(voice_input)
-    try:
-        Jarvis.execute_command_with_name(Jarvis(),voice_input)
-    except:
-        pass
+    def execute_command_with_name(query):
+        mas = query.split(" ")
+        if mas[1]=="включи":
+            Jarvis.query_in_youtube(mas[1])
+voice_input = Jarvis().record_and_recognize_audio()
+print(voice_input)
+Jarvis.execute_command_with_name(voice_input)
