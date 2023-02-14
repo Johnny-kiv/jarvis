@@ -1,8 +1,5 @@
 import speech_recognition
 import webbrowser
-
-
-
 class Jarvis():
 
     def record_and_recognize_audio(*args: tuple):
